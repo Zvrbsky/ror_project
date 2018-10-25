@@ -1,0 +1,9 @@
+=link_to root_path do
+  strong Go back to the main site
+end
+
+h1 events
+- @events.each do |event|
+  p
+    a href=event_path(event)
+      = event.title
