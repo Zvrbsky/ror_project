@@ -1,9 +1,15 @@
-=link_to root_path do
-  strong Go back to the main site
-end
+h1 Listing events
 
-h1 events
-- @events.each do |event|
-  p
-    a href=event_path(event)
-      = event.title
+table
+  thead
+    tr
+      th Title
+      th
+
+  tbody
+    - @events.each do |event|
+      tr
+        td = event.title
+        td = link_to 'Show', event
+
+br

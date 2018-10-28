@@ -1,0 +1,22 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand href=root_path
+    | Home
+  button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarNavDropdown.collapse.navbar-collapse
+    ul.navbar-nav
+      li.nav-item class=(current_page?(events_path) ? 'active' : '')
+        a.nav-link href=events_path
+          | Events
+      li.nav-item class=(current_page?(user_panel_root_path) ? 'active' : '')
+        a.nav-link href = user_panel_root_path
+          - if user_signed_in?
+            | User panel
+      li.nav-item
+        a.nav-link data-method='delete' href = destroy_user_session_path
+          - if user_signed_in?
+              |Log out
+      li.nav-item
+        a.nav-link href=new_user_session_path
+          - if !user_signed_in?
+            |Sing in
