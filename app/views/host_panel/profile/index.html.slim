@@ -10,7 +10,7 @@ table
 
   tbody
     - @events.each do |event|
-      -if event.user_id == current_user.id
+      -if event.host_id == current_host.id
         tr
           td = event.title
           td = event.content
