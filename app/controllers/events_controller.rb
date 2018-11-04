@@ -2,7 +2,7 @@
 
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[show index]
+  before_action :authenticate_host!, except: %i[show index]
 
   def index
     @events = Event.all
