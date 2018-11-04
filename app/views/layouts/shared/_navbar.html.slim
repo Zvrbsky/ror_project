@@ -8,15 +8,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       li.nav-item class=(current_page?(events_path) ? 'active' : '')
         a.nav-link href=events_path
           | Events
-      li.nav-item class=(current_page?(user_panel_root_path) ? 'active' : '')
-        a.nav-link href = user_panel_root_path
-          - if user_signed_in?
-            | User panel
+      li.nav-item class=(current_page?(host_panel_root_path) ? 'active' : '')
+        a.nav-link href = host_panel_root_path
+          - if host_signed_in?
+            | Host panel
       li.nav-item
-        a.nav-link data-method='delete' href = destroy_user_session_path
-          - if user_signed_in?
+        a.nav-link data-method='delete' href = destroy_host_session_path
+          - if host_signed_in?
               |Log out
       li.nav-item
-        a.nav-link href=new_user_session_path
-          - if !user_signed_in?
+        a.nav-link href=new_host_session_path
+          - if !host_signed_in?
             |Sing in
