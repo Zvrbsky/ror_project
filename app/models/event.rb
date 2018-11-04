@@ -3,6 +3,5 @@
 class Event < ApplicationRecord
   belongs_to :host
 
-  validates_presence_of :title
-  validates_presence_of :content
+  validates_presence_of :title, :content, :amount
 end

@@ -5,4 +5,11 @@ p
   strong Content:
   = @event.content
 
+p
+  strong Available tickets:
+  = @event.amount
+
+p
+  == render 'buy'
+
 =< link_to 'Back', events_path

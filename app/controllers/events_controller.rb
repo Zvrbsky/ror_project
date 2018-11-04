@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update destroy]
-  before_action :authenticate_host!, except: %i[show index]
+  before_action :set_event, only: %i[show edit update destroy buy]
+  before_action :authenticate_host!, except: %i[show index buy]
 
   def index
     @events = Event.all
@@ -45,7 +45,18 @@ class EventsController < ApplicationController
         redirect_to host_panel_root_path, notice:
           'Event was successfully destroyed.'
       end
-      format.json { head :no_content }
+    end
+  end
+
+  def buy
+    respond_to do |format|
+      if @event.amount == 0
+        format.html {redirect_to event_path, notice: 'No tickets available'}
+      else
+        format.html {redirect_to event_path, notice: 'Ticket was booked successfully'}
+        @event.amount -= 1
+        @event.save
+      end
     end
   end
 
@@ -56,6 +67,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content)
+    params.require(:event).permit(:title, :content, :amount)
   end
 end

@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'home#index'
 
-  resources :events
+  resources :events do
+    member do
+      get 'buy'
+    end
+  end
 
   namespace :host_panel, path: 'host_panel' do
     root to: 'profile#index'
