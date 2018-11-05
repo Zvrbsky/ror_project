@@ -9,10 +9,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-
-#10.times do
+# 10.times do
 #  Event.create!(host_id: 1,
 #                title: Faker::Cannabis.cannabinoid,
 #                content: Faker::Games::Fallout.quote,
 #                amount: Faker::Number.number(2))
-#end
+# end

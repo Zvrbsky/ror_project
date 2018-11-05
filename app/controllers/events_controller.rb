@@ -14,7 +14,6 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-
   def edit; end
 
   def create
@@ -52,9 +51,9 @@ class EventsController < ApplicationController
   def buy
     respond_to do |format|
       if @event.amount == 0
-        format.html {redirect_to event_path, notice: 'No tickets available'}
+        format.html { redirect_to event_path, notice: 'No tickets available' }
       else
-        format.html {redirect_to event_path, notice: 'Ticket was booked successfully'}
+        format.html { redirect_to event_path, notice: 'Ticket was booked successfully' }
         @event.amount -= 1
         @event.save
       end
