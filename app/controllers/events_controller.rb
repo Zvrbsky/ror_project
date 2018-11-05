@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+
   def edit; end
 
   def create
@@ -67,6 +68,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :amount)
+    params.require(:event).permit(:title, :content, :amount, :event_image, :event_thumb)
   end
 end

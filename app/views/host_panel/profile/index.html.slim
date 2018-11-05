@@ -2,6 +2,7 @@ h1 Your Events
 table
   thead
     tr
+      th Thumbnail
       th Title
       th Content
       th
@@ -12,6 +13,7 @@ table
     - @events.each do |event|
       -if event.host_id == current_host.id
         tr
+          td = image_tag event.event_thumb.variant(resize: "200x200")
           td = event.title
           td = event.content
           td = link_to 'Show', event
