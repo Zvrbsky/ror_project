@@ -13,7 +13,7 @@ ActiveAdmin.register Event do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :event_image, :title, :content, :host_id, :amount
+  permit_params :event_image, :title, :content, :host_id, :amount, :date
 
   form partial: 'form'
 end

@@ -1,9 +1,47 @@
+h2 Featured events
+
+table
+  thead
+    tr
+      th
+      th Title
+      th Date
+      th
+
+  tbody
+    - @view_model.featured_events.each do |event|
+      tr
+        td = image_tag event.event_image.variant(resize: "400x400")
+        td = event.title
+        td = event.date
+        td = link_to 'Show', event
+
+h2 Closest events
+
+table
+  thead
+    tr
+      th
+      th Title
+      th Date
+      th
+
+  tbody
+    - @view_model.closest_events.each do |event|
+      tr
+        td = image_tag event.event_image.variant(resize: "300x300")
+        td = event.title
+        td = event.date
+        td = link_to 'Show', event
+
 h1 Listing events
 
 table
   thead
     tr
+      th
       th Title
+      th Date
       th
 
   tbody
@@ -11,6 +49,7 @@ table
       tr
         td = image_tag event.event_image.variant(resize: "200x200")
         td = event.title
+        td = event.date
         td = link_to 'Show', event
 
 br

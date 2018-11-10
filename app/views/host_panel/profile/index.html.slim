@@ -4,6 +4,7 @@ table
     tr
       th Image
       th Title
+      th Date
       th Content
       th
       th
@@ -15,6 +16,7 @@ table
         tr
           td = image_tag event.event_image.variant(resize: "200x200")
           td = event.title
+          td = event.date
           td = event.content
           td = link_to 'Show', event
           td = link_to 'Edit', edit_event_path(event)

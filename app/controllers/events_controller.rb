@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   before_action :authenticate_host!, except: %i[show index buy]
 
   def index
+    @view_model = HomePageViewModel.new
     @events = Event.all
   end
 
@@ -67,6 +68,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :amount, :event_image)
+    params.require(:event).permit(:title, :content, :amount, :event_image, :date)
   end
 end

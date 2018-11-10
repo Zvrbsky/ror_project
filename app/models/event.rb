@@ -5,5 +5,5 @@ class Event < ApplicationRecord
 
   has_one_attached :event_image
 
-  validates_presence_of :title, :content, :amount, :event_image
+  validates_presence_of :title, :content, :amount, :event_image, :date
 end
