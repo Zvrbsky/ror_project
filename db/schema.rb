@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 2018_11_10_174343) do
     t.datetime "updated_at", null: false
     t.integer "host_id"
     t.integer "amount"
-    t.date "event_date"
     t.date "date"
   end
 
