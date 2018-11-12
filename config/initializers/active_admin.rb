@@ -9,7 +9,7 @@ ActiveAdmin.setup do |config|
   config.site_title = 'Ror Project'
 
   # Set the link url for the title. For example, to take
-  # users to your main site. Defaults to no link.
+  # host to your main site. Defaults to no link.
   #
   # config.site_title_link = "/"
 
@@ -118,7 +118,7 @@ ActiveAdmin.setup do |config|
 
   # == Admin Comments
   #
-  # This allows your users to comment on any resource registered with Active Admin.
+  # This allows your host to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
   # config.comments = false
@@ -165,7 +165,7 @@ ActiveAdmin.setup do |config|
   #
   # Add additional meta tags to the head element of active admin pages.
   #
-  # Add tags to all pages logged in users see:
+  # Add tags to all pages logged in host see:
   #   config.meta_tags = { author: 'My Company' }
 
   # By default, sign up/sign in/recover password pages are excluded

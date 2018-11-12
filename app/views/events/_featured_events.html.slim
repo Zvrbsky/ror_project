@@ -1,0 +1,33 @@
+#FeaturedEventsCarousel.carousel.slide data-ride="carousel"
+  ol.carousel-indicators
+    li.active data-slide-to="0" data-target="#carouselExampleIndicators"
+    li data-slide-to="1" data-target="#carouselExampleIndicators"
+    li data-slide-to="2" data-target="#carouselExampleIndicators"
+  .carousel-inner
+    -@view_model.featured_events.each_with_index do |event, index|
+      -if index == 0
+        .carousel-item.active
+          center
+            a href = event_path(event)
+              = image_tag event.event_image.variant(resize: "600x600")
+          .carousel-caption
+            h2
+              = event.title
+            p
+              = event.date
+      -else
+        .carousel-item
+          center
+            a href = event_path(event)
+              = image_tag event.event_image.variant(resize: "600x600")
+          .carousel-caption
+            h2
+              = event.title
+            p
+              = event.date
+  a.carousel-control-prev data-slide="prev" href="#FeaturedEventsCarousel" role="button"
+    span.carousel-control-prev-icon aria-hidden="true"
+    span.sr-only Previous
+  a.carousel-control-next data-slide="next" href="#FeaturedEventsCarousel" role="button"
+    span.carousel-control-next-icon aria-hidden="true"
+    span.sr-only Next

@@ -7,11 +7,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+require 'uri'
 
-# 10.times do
-#  Event.create!(host_id: 1,
-#                title: Faker::Cannabis.cannabinoid,
-#                content: Faker::Games::Fallout.quote,
-#                amount: Faker::Number.number(2))
-# end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+Host.create!(email: 'top@kek.com', password: '123456')
+Host.create!(email: 'top2@kek.com', password: '123456')
+
+10.times do
+  event = Event.create!(host_id: Faker::Number.between(1, 2),
+                        title: Faker::Cannabis.cannabinoid,
+                        content: Faker::Games::Fallout.quote,
+                        amount: Faker::Number.number(2),
+                        date: Faker::Date.forward(1000))
+  bl = true
+  while bl
+    begin
+      file = open(URI.parse(Faker::Avatar.image))
+      bl = false
+    rescue OpenURI::HTTPError
+      bl = true
+    end
+  end
+  event.event_image.attach(io: file, filename: 'dummy.png')
+  event.save
+end

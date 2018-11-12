@@ -1,55 +1,33 @@
-h2 Featured events
+h1 New events
 
-table
-  thead
-    tr
-      th
-      th Title
-      th Date
-      th
+p == render 'featured_events'
 
-  tbody
-    - @view_model.featured_events.each do |event|
+
+h2 Upcoming events
+
+center
+  table
+    tbody
       tr
-        td = image_tag event.event_image.variant(resize: "400x400")
-        td = event.title
-        td = event.date
-        td = link_to 'Show', event
+        - @view_model.closest_events.each do |event|
+          td
+            .card style=("width: 18rem;")
+              a href =event_path(event)
+                  = image_tag event.event_image.variant(resize: "400x300")
+            .card-body
+              h5.card-title
+                = event.title
+              p.card-text
+                = event.date
 
-h2 Closest events
-
-table
-  thead
-    tr
-      th
-      th Title
-      th Date
-      th
-
-  tbody
-    - @view_model.closest_events.each do |event|
-      tr
-        td = image_tag event.event_image.variant(resize: "300x300")
-        td = event.title
-        td = event.date
-        td = link_to 'Show', event
-
-h1 Listing events
+h3 Other events
 
 table
-  thead
-    tr
-      th
-      th Title
-      th Date
-      th
-
   tbody
     - @events.each do |event|
       tr
-        td = image_tag event.event_image.variant(resize: "200x200")
+        td
+          a href = event_path(event)
+            = image_tag event.event_image.variant(resize: "200x200")
         td = event.title
         td = event.date
-        td = link_to 'Show', event
-
-br

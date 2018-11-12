@@ -1,17 +1,15 @@
 p
+  == render 'back'
+
+p
   h1 = image_tag @event.event_image.variant(resize: "600x600")
 
-p
-  strong Title:
-  = @event.title
+h1 = @event.title
 
 p
-  strong Date:
-  = @event.date
+  strong = @event.date
 
-p
-  strong Content:
-  = @event.content
+p = @event.content
 
 p
   strong Available tickets:
@@ -20,4 +18,3 @@ p
 p
   == render 'buy'
 
-=< link_to 'Back', events_path

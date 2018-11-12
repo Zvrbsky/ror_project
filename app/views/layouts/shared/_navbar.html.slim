@@ -1,4 +1,4 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
+nav.navbar.navbar-expand-lg.navbar-dark
   a.navbar-brand href=root_path
     | Home
   button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
@@ -8,15 +8,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       li.nav-item class=(current_page?(events_path) ? 'active' : '')
         a.nav-link href=events_path
           | Events
-      li.nav-item class=(current_page?(host_panel_root_path) ? 'active' : '')
-        a.nav-link href = host_panel_root_path
-          - if host_signed_in?
+      - if host_signed_in?
+        li.nav-item class=(current_page?(host_panel_root_path) ? 'active' : '')
+          a.nav-link href = host_panel_root_path
             | Host panel
-      li.nav-item
-        a.nav-link data-method='delete' href = destroy_host_session_path
-          - if host_signed_in?
-              |Log out
-      li.nav-item
-        a.nav-link href=new_host_session_path
-          - if !host_signed_in?
+      - if host_signed_in?
+        li.nav-item
+          a.nav-link data-method='delete' href = destroy_host_session_path
+            |Log out
+      - if !host_signed_in?
+        li.nav-item class=(current_page?(new_host_session_path) ? 'active' : '')
+          a.nav-link href=new_host_session_path
             |Sing in
