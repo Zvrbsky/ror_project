@@ -9,6 +9,7 @@ table
   tbody
     - @events.each do |event|
       tr
+        td = image_tag event.event_image.variant(resize: "200x200")
         td = event.title
         td = link_to 'Show', event
 

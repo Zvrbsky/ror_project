@@ -1,8 +1,18 @@
 p
+  h1 = image_tag @event.event_image.variant(resize: "600x600")
+
+p
   strong Title:
   = @event.title
 p
   strong Content:
   = @event.content
+
+p
+  strong Available tickets:
+  = @event.amount
+
+p
+  == render 'buy'
 
 =< link_to 'Back', events_path
