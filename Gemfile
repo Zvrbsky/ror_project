@@ -62,6 +62,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'activeadmin'
+gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
 gem 'jquery-rails'

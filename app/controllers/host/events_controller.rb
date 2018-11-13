@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Host::EventsController < ApplicationController
   before_action :set_event, only: %i[edit update destroy]
   before_action :authenticate_host!
@@ -41,6 +43,7 @@ class Host::EventsController < ApplicationController
   def edit; end
 
   private
+
   def set_event
     @event = Event.find(params[:id])
   end
@@ -48,5 +51,4 @@ class Host::EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :content, :amount, :event_image, :date)
   end
-
 end
