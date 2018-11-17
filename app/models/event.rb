@@ -6,7 +6,6 @@ class Event < ApplicationRecord
   has_one_attached :event_image
 
   def self.search(search)
-
     if search
       where('title LIKE ?', "%#{search}")
     else
@@ -16,7 +15,7 @@ class Event < ApplicationRecord
 
   def self.filter(cat)
     if cat == 'All'
-      Event.all
+      all
     else
       where('category LIKE ?', "%#{cat}")
     end
