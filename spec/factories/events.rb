@@ -6,4 +6,5 @@ FactoryBot.define do
     date {Faker::Date.forward(Random.rand(100))}
     association :host
   end
+  #travis test
 end
