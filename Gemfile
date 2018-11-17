@@ -44,6 +44,9 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'image_processing', '~> 1.2'
   gem 'pry'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
+  gem 'simplecov', require: false
 end
 
 group :development do
