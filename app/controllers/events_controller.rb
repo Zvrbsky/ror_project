@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def index
     @view_model = HomePageViewModel.new
-    @events = Event.all
+    @events = Event.filter(params[:cat]).search(params[:search])
   end
 
   def show; end
@@ -29,6 +29,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :amount, :event_image, :date)
+    params.require(:event).permit(:title, :content, :amount, :event_image, :date, :search, :cat)
   end
 end

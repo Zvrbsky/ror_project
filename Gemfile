@@ -43,6 +43,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'image_processing', '~> 1.2'
+  gem 'pry'
 end
 
 group :development do

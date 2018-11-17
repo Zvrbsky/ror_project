@@ -20,6 +20,14 @@ center
               p.card-text
                 = event.date
 
+h4 Event's name
+= form_tag(events_path, method: :get) do
+  = text_field_tag :search, params[:search]
+  h4 Category
+  = select_tag :cat, options_for_select(['All', 'Rock', 'Jazz', 'Pop', 'Punk', 'Hardcore', 'Metal', 'Rave'], params[:cat])
+  = submit_tag 'Search', name: nil
+
+
 h3 Other events
 
 table
@@ -30,4 +38,5 @@ table
           a href = event_path(event)
             = image_tag event.event_image.variant(resize: "200x200")
         td = event.title
+        td = event.category
         td = event.date
