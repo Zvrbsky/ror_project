@@ -25,7 +25,6 @@ Host.create!(email: 'top2@kek.com', password: '123456')
       file = open(URI.parse(Faker::Avatar.image))
       bl = false
     rescue OpenURI::HTTPError
-      bl = true
     end
   end
   event.event_image.attach(io: file, filename: 'dummy.png')
