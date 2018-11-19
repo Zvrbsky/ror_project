@@ -1,6 +1,7 @@
 = semantic_form_for [:admin, @event], builder: ActiveAdmin::FormBuilder do |f|
   = f.inputs do
     = f.input :title
+    = f.input :date
     = f.input :event_image, as: :file
     = f.input :content
     = f.input :host_id

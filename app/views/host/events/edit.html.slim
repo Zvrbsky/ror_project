@@ -1,0 +1,13 @@
+-if @event.host_id == current_host.id
+  h1 Editing event
+
+  == render 'form'
+
+  => link_to 'Show', @event
+  '|
+  =< link_to 'Back', events_path
+-else
+  h1 You cannot edit others' events.
+
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_112429) do
+ActiveRecord::Schema.define(version: 2018_11_10_174343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_112429) do
     t.datetime "updated_at", null: false
     t.integer "host_id"
     t.integer "amount"
+    t.date "date"
   end
 
   create_table "hosts", force: :cascade do |t|
