@@ -41,11 +41,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'image_processing', '~> 1.2'
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
-  gem 'factory_bot_rails'
   gem 'simplecov', require: false
 end
 
@@ -55,7 +55,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background.
   # Read more: https://github.com/rails/spring
-  gem 'image_processing', '~> 1.2'
   gem 'rubocop', '~> 0.60.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

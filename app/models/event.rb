@@ -2,8 +2,8 @@
 
 class Event < ApplicationRecord
   belongs_to :host
-
   has_one_attached :event_image
+  validates_presence_of :title, :content, :amount, :date
 
   def self.search(search)
     if search
@@ -20,6 +20,4 @@ class Event < ApplicationRecord
       where('category LIKE ?', "%#{cat}")
     end
   end
-
-  validates_presence_of :title, :content, :amount, :event_image, :date
 end

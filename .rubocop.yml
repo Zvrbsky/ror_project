@@ -20,8 +20,20 @@
   Metrics/BlockLength:
     Exclude:
     - 'spec/**/*.rb'
+    - 'config/initializers/simple_form_bootstrap.rb'
 
   Metrics/MethodLength:
     Exclude:
     - 'db/migrate/*.rb'
 
+  Style/ClassAndModuleChildren:
+      Exclude:
+      - 'app/controllers/host/events_controller.rb'
+
+  Security/Open:
+      Exclude:
+      - 'db/seeds.rb'
+
+  Lint/HandleExceptions:
+    Exclude:
+    - 'db/seeds.rb'

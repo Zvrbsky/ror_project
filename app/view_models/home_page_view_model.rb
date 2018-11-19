@@ -6,6 +6,6 @@ class HomePageViewModel
   end
 
   def closest_events
-    Event.order(:date).first(3).reverse
+    Event.order(:date).first(3)
   end
 end

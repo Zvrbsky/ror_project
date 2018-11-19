@@ -13,7 +13,7 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 Host.create!(email: 'top@kek.com', password: '123456')
 Host.create!(email: 'top2@kek.com', password: '123456')
 
-cat = ['Rock', 'Jazz', 'Pop', 'Punk', 'Hardcore', 'Metal', 'Rave']
+cat = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
 
 10.times do
   event = Event.create!(host_id: Faker::Number.between(1, 2),

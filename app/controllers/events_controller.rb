@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
   def buy
     respond_to do |format|
-      if @event.amount == 0
+      if @event.amount.zero?
         format.html { redirect_to event_path, notice: 'No tickets available' }
       else
         format.html { redirect_to event_path, notice: 'Ticket was booked successfully' }
