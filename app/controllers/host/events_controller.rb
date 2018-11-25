@@ -40,7 +40,10 @@ class Host::EventsController < ApplicationController
     @event = Event.new
   end
 
-  def edit; end
+  def edit
+    @event = current_host.events.find_by(id: params[:id])
+    raise ActiveRecord::RecordNotFound if @event.nil?
+  end
 
   private
 
