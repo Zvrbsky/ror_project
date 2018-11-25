@@ -13,9 +13,12 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 Host.create!(email: 'top@kek.com', password: '123456')
 Host.create!(email: 'top2@kek.com', password: '123456')
 
+cat = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
+
 10.times do
   event = Event.create!(host_id: Faker::Number.between(1, 2),
                         title: Faker::Cannabis.cannabinoid,
+                        category: cat[Faker::Number.between(0, 6)],
                         content: Faker::Games::Fallout.quote,
                         amount: Faker::Number.number(2),
                         date: Faker::Date.forward(1000))

@@ -5,14 +5,14 @@ class EventsController < ApplicationController
 
   def index
     @view_model = HomePageViewModel.new
-    @events = Event.all
+    @events = Event.filter(params[:cat]).search(params[:search])
   end
 
   def show; end
 
   def buy
     respond_to do |format|
-      if @event.amount == 0
+      if @event.amount.zero?
         format.html { redirect_to event_path, notice: 'No tickets available' }
       else
         format.html { redirect_to event_path, notice: 'Ticket was booked successfully' }
@@ -29,6 +29,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :amount, :event_image, :date)
+    params.require(:event).permit(:title, :content, :amount, :event_image, :date, :search, :cat)
   end
 end

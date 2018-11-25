@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -41,8 +41,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'factory_bot_rails'
   gem 'image_processing', '~> 1.2'
+  gem 'pry'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -51,7 +54,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background.
   # Read more: https://github.com/rails/spring
-  gem 'image_processing', '~> 1.2'
   gem 'rubocop', '~> 0.60.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -65,6 +67,7 @@ gem 'activeadmin'
 gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 gem 'jquery-rails'
 gem 'popper_js'
 gem 'simple_form', '~> 4.0'
