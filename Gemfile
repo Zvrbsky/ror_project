@@ -42,7 +42,6 @@ group :development, :test do
   # stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'image_processing', '~> 1.2'
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
@@ -74,3 +73,4 @@ gem 'simple_form', '~> 4.0'
 gem 'slim-rails'
 gem 'tether-rails'
 gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+gem "aws-sdk-s3", require: false
