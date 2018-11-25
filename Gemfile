@@ -73,4 +73,3 @@ gem 'simple_form', '~> 4.0'
 gem 'slim-rails'
 gem 'tether-rails'
 gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
-gem "aws-sdk-s3", require: false
