@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Event do
-  describe '#search_by_name' do
+  describe '.search' do
     subject { Event.search('') }
 
     context 'when there are no events' do
@@ -38,7 +38,7 @@ RSpec.describe Event do
     end
   end
 
-  describe '#filter_by_category' do
+  describe '.filter' do
     subject { Event.filter('') }
 
     context 'when there are no events' do
