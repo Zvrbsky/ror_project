@@ -24,7 +24,10 @@ h4 Event's name
 = form_tag(events_path, method: :get) do
   = text_field_tag :search, params[:search]
   h4 Category
-  = select_tag :cat, options_for_select(['All', 'Rock', 'Jazz', 'Pop', 'Punk', 'Hardcore', 'Metal', 'Rave'], params[:cat])
+  - @categories.each do |category|
+    = check_box_tag "cat[]", category, false, :cat => category
+    = category
+    br
   = submit_tag 'Search', name: nil
 
 
