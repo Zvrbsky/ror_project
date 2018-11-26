@@ -5,16 +5,8 @@ class EventsController < ApplicationController
 
   def index
     @view_model = HomePageViewModel.new
-    @events = if (params[:cat].nil? and params[:search].nil?) or (params[:cat].nil? and params[:search] == '')
-                Event.all
-              elsif params[:cat].nil?
-                Event.where("title LIKE '%#{params[:search]}%'")
-              elsif params[:search] == ''
-                Event.where(category: params[:cat])
-              else
-                Event.where(category: params[:cat]).where("title LIKE '%#{params[:search]}%'")
-              end
-    @categories = ['Rock', 'Jazz', 'Pop', 'Punk', 'Hardcore', 'Metal', 'Rave']
+    @events = search_events
+    @categories = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
   end
 
   def show; end
@@ -41,4 +33,15 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :content, :amount, :event_image, :date, :search, :cat)
   end
 
+  def search_events
+    @events = filter_events
+    @events = @events.where("title LIKE '%#{params[:search]}%'") if params[:search].present? && params[:search] != ''
+    @events
+  end
+
+  def filter_events
+    @events = Event.all
+    @events = @events.where(category: params[:cat]) if params[:cat].present?
+    @events
+  end
 end

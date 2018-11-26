@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :host
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
   end
 
   namespace :host_panel, path: 'host_panel' do
+    root to: 'profile#index'
+  end
+
+  namespace :user_panel, path: 'user_panel' do
     root to: 'profile#index'
   end
 

@@ -13,6 +13,9 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 Host.create!(email: 'top@kek.com', password: '123456')
 Host.create!(email: 'top2@kek.com', password: '123456')
 
+User.create!(email: 'user@kek.com', password: '123456')
+User.create!(email: 'user2@kek.com', password: '123456')
+
 cat = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
 
 10.times do
