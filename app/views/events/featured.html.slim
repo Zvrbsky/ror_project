@@ -1,0 +1,21 @@
+h1 New events
+
+= render 'featured_events'
+
+
+h2 Upcoming events
+
+center
+  table
+    tbody
+      tr
+        - @view_model.closest_events.each do |event|
+          td
+            .card style=("width: 18rem;")
+              a href =event_path(event)
+                = image_tag event.event_image.variant(resize: "400x300")
+            .card-body
+              h5.card-title
+                = event.title
+              p.card-text
+                = event.date

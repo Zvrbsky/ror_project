@@ -5,9 +5,12 @@ nav.navbar.navbar-expand-lg.navbar-dark
     span.navbar-toggler-icon
   #navbarNavDropdown.collapse.navbar-collapse
     ul.navbar-nav
+      li.nav-item class=(current_page?(featured_path) ? 'active' : '')
+        a.nav-link href=featured_path
+          | Featured
       li.nav-item class=(current_page?(events_path) ? 'active' : '')
         a.nav-link href=events_path
-          | Events
+          | All
       - if host_signed_in?
         li.nav-item class=(current_page?(host_panel_root_path) ? 'active' : '')
           a.nav-link href = host_panel_root_path
@@ -32,3 +35,7 @@ nav.navbar.navbar-expand-lg.navbar-dark
         li.nav-item
           a.nav-link data-method='delete' href = destroy_user_session_path
             | Log out
+      li.nav-item
+        = form_tag(search_path, method: :get) do
+          = text_field_tag :search, params[:search]
+          = submit_tag 'Search', name: nil
