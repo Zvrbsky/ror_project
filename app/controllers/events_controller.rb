@@ -3,8 +3,15 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show buy]
 
-  def index
+  def featured
     @view_model = HomePageViewModel.new
+  end
+
+  def index
+    @events = Event.all
+  end
+
+  def search
     @events = search_events
     @categories = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
   end

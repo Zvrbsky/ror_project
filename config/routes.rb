@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'home#index'
 
+  get '/featured', to: 'events#featured'
+  get '/search', to: 'events#search'
+
   resources :events do
     member do
       get 'buy'
