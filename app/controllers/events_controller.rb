@@ -42,7 +42,7 @@ class EventsController < ApplicationController
 
   def search_events
     @events = filter_events
-    @events = @events.where("title LIKE '%#{params[:search]}%'") if params[:search].present? && params[:search] != ''
+    @events = @events.where("title LIKE '%#{params[:search]}%'") if params[:search].present?
     @events
   end
 
