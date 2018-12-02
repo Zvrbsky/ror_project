@@ -5,7 +5,7 @@ module HostPanel
     before_action :authenticate_host!
 
     def index
-      @events = Event.all
+      @events = current_host.events
     end
   end
 end
