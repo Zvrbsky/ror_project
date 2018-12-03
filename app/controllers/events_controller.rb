@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'uri'
 
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show buy]
@@ -37,7 +38,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :amount, :event_image, :date, :search, :cat)
+    params.require(:event).permit(:title, :content, :amount, :date, :search, :cat, :price)
   end
 
   def search_events
