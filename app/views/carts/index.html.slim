@@ -1,0 +1,5 @@
+table
+  tbody
+    - @cart.order_items.all.each do |item|
+      tr
+        td= item.event.title

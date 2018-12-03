@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :carts, only: [:index]
+
   namespace :host_panel, path: 'host_panel' do
     root to: 'profile#index'
   end
