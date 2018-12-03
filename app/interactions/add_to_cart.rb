@@ -5,6 +5,4 @@ class AddToCart < ActiveInteraction::Base
   def execute
     guest.cart.order_items.create event: event
   end
-
-
 end

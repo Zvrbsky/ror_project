@@ -63,6 +63,7 @@ end
 # so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'active_interaction', '~> 3.6'
 gem 'activeadmin'
 gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.1.3'
@@ -74,4 +75,3 @@ gem 'popper_js'
 gem 'simple_form', '~> 4.0'
 gem 'slim-rails'
 gem 'tether-rails'
-gem 'active_interaction', '~> 3.6'

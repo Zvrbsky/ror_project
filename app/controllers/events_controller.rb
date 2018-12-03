@@ -24,18 +24,18 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     outcome = AddToCart.run(guest: current_guest, event: event)
 
-    if outcome.valid?
-      flash[:notice] = 'Added to cart'
-    else
-      flash[:notice] = outcome.errors.full_messages
-    end
+    flash[:notice] = if outcome.valid?
+                       'Added to cart'
+                     else
+                       outcome.errors.full_messages
+                     end
     redirect_to event_path
   end
 
   def buy
     if @event.amount.zero?
       flash[:notice] = 'No tickets available'
-        redirect_to event_path
+      redirect_to event_path
     else
       add_to_cart
       @event.amount -= 1
