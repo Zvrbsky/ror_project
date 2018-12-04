@@ -39,7 +39,7 @@ nav.navbar.navbar-expand-lg.navbar-dark
         li.nav-item
           a.nav-link data-method='delete' href = destroy_user_session_path
             | Log out
-      li.nav-item
-        = form_tag(search_path, method: :get) do
-          = text_field_tag :search, params[:search]
-          = submit_tag 'Search', name: nil
+    form class='form-inline' action=search_path method='get'
+      input class='form-control mr-sm-2' id='search' type='text' name='search' placeholder='Search' aria-label='Search'
+      button class='btn btn-outline-secondary' type='submit' data-disable-with='Search'
+        | Search
