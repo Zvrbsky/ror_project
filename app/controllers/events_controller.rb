@@ -3,7 +3,7 @@
 require 'uri'
 
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show buy]
+  before_action :set_event, only: %i[show buy add_to_cart]
 
   def featured
     @view_model = HomePageViewModel.new
@@ -21,8 +21,7 @@ class EventsController < ApplicationController
   def show; end
 
   def add_to_cart
-    event = Event.find(params[:id])
-    outcome = AddToCart.run(guest: current_guest, event: event)
+    outcome = AddToCart.run(guest: current_guest, event: @event)
 
     flash[:notice] = if outcome.valid?
                        'Added to cart'
@@ -30,17 +29,6 @@ class EventsController < ApplicationController
                        outcome.errors.full_messages
                      end
     redirect_to event_path
-  end
-
-  def buy
-    if @event.amount.zero?
-      flash[:notice] = 'No tickets available'
-      redirect_to event_path
-    else
-      add_to_cart
-      @event.amount -= 1
-      @event.save
-    end
   end
 
   private

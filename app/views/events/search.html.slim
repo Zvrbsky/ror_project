@@ -3,7 +3,7 @@ h4 Event's name
   = text_field_tag :search, params[:search]
   h4 Category
   - @categories.each do |category|
-    = check_box_tag "cat[]", category, false, :cat => category
+    = check_box_tag "cat[]", category, (params[:cat].present? ? params[:cat] : []).include?(category), :cat => category
     = category
     br
   = submit_tag 'Search', name: nil
