@@ -33,6 +33,7 @@
   Security/Open:
       Exclude:
       - 'db/seeds.rb'
+      - 'app/controllers/host/events_controller.rb'
 
   Lint/HandleExceptions:
     Exclude:

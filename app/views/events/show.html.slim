@@ -15,9 +15,13 @@ p
 p = @event.content
 
 p
+  strong Price:
+  = @event.price
+
+p
   strong Available tickets:
   = @event.amount
 
 p
-  = render 'buy'
+  = render 'add_to_cart'
 

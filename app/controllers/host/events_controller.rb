@@ -9,6 +9,7 @@ class Host::EventsController < ApplicationController
     @event.host_id = current_host.id
     respond_to do |format|
       if @event.save
+        default_image(@event)
         format.html { redirect_to host_panel_root_path, notice: 'Event was successfully created.' }
       else
         format.html { render :new }
@@ -41,8 +42,7 @@ class Host::EventsController < ApplicationController
   end
 
   def edit
-    @event = current_host.events.find_by(id: params[:id])
-    raise ActiveRecord::RecordNotFound if @event.nil?
+    @event = current_host.events.find(params[:id])
   end
 
   private
@@ -53,5 +53,13 @@ class Host::EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :content, :amount, :event_image, :date, :search, :cat)
+  end
+
+  def default_image(event)
+    return false if event.event_image.attached?
+
+    file = open(URI.parse('http://oliclinic.pl/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'))
+    event.event_image.attach(io: file, filename: 'dummy.png')
+    event.save
   end
 end

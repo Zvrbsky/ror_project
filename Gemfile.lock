@@ -32,6 +32,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_interaction (3.6.2)
+      activemodel (>= 4, < 6)
     activeadmin (1.3.1)
       arbre (>= 1.1.1)
       coffee-rails
@@ -176,6 +178,15 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    monetize (1.9.0)
+      money (~> 6.12)
+    money (6.13.1)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.13.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9.0)
+      money (~> 6.13.0)
+      railties (>= 3.0)
     msgpack (1.2.4)
     multi_json (1.13.1)
     nio4r (2.3.1)
@@ -185,7 +196,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
-    pg (1.1.3)
+    pg (0.18.4)
     popper_js (1.14.3)
     powerpack (0.1.2)
     pry (0.11.3)
@@ -325,6 +336,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_interaction (~> 3.6)
   activeadmin
   aws-sdk-s3
   bootsnap (>= 1.1.0)
@@ -339,6 +351,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
+  money-rails (~> 1.12)
   pg (>= 0.18, < 2.0)
   popper_js
   pry

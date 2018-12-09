@@ -9,12 +9,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'uri'
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-Host.create!(email: 'top@kek.com', password: '123456')
-Host.create!(email: 'top2@kek.com', password: '123456')
-
 User.create!(email: 'user@kek.com', password: '123456')
 User.create!(email: 'user2@kek.com', password: '123456')
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+Host.create!(email: 'top@kek.com', password: '123456')
+Host.create!(email: 'top2@kek.com', password: '123456')
 
 cat = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
 
@@ -24,7 +25,8 @@ cat = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
                         category: cat[Faker::Number.between(0, 6)],
                         content: Faker::Games::Fallout.quote,
                         amount: Faker::Number.number(2),
-                        date: Faker::Date.forward(1000))
+                        date: Faker::Date.forward(1000),
+                        price: Faker::Number.number(2))
   bl = true
   while bl
     begin

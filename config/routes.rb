@@ -7,12 +7,17 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'home#index'
 
+  get '/featured', to: 'events#featured'
+  get '/search', to: 'events#search'
+
   resources :events do
     member do
-      get 'buy'
+      get 'add_to_cart'
       get 'back'
     end
   end
+
+  resources :carts, only: [:index]
 
   namespace :host_panel, path: 'host_panel' do
     root to: 'profile#index'

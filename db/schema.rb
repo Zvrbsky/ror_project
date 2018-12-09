@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_212644) do
+ActiveRecord::Schema.define(version: 2018_12_02_225910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 2018_11_26_212644) do
     t.integer "amount"
     t.date "date"
     t.string "category"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "hosts", force: :cascade do |t|
@@ -83,6 +90,23 @@ ActiveRecord::Schema.define(version: 2018_11_26_212644) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_hosts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_hosts_on_reset_password_token", unique: true
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "event_id"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "owner_id"
+    t.string "owner_type"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

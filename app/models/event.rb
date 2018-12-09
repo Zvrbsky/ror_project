@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   belongs_to :host
   has_one_attached :event_image
   validates_presence_of :title, :content, :amount, :date
+  monetize :price_cents
 
   def self.search(search)
     if search
