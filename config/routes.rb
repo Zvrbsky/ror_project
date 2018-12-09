@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'users/email_exists', to: 'users#email_exists'
+    get 'hosts/email_exists', to: 'hosts#email_exists'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
