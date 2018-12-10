@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :carts, only: [:index]
+  resources :carts, only: [:index] do
+    collection do
+      post :confirm
+    end
+  end
 
   namespace :host_panel, path: 'host_panel' do
     root to: 'profile#index'
@@ -25,6 +29,12 @@ Rails.application.routes.draw do
 
   namespace :user_panel, path: 'user_panel' do
     root to: 'profile#index'
+
+    resources :orders, only: %i[show index] do
+      member do
+        post 'confirm'
+      end
+    end
   end
 
   namespace :host do
