@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def search
     @events = search_events
     @categories = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
+    #binding.pry
   end
 
   def show; end

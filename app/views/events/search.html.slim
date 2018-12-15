@@ -1,12 +1,8 @@
-h4 Event's name
-= form_tag(search_path, method: :get) do
-  = text_field_tag :search, params[:search]
-  h4 Category
-  - @categories.each do |category|
-    = check_box_tag "cat[]", category, (params[:cat].present? ? params[:cat] : []).include?(category), :cat => category
-    = category
-    br
-  = submit_tag 'Search', name: nil
+h4 Category
+- @categories.each do |category|
+  = check_box_tag "cat[]", category, (params[:cat].present? ? params[:cat] : []).include?(category), :cat => category
+  = category
+  br
 
 h1 Search results:
 

@@ -43,7 +43,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.justify-content-between
         li.nav-item
           a.nav-link data-method='delete' href = destroy_user_session_path
             | Log out
-    form class='form-inline' action=search_path method='get'
-      input class='form-control mr-sm-2' id='search' type='text' name='search' placeholder='Search' aria-label='Search'
+    form.form-inline action=search_path method='get'
+      input.main-search.form-control.mr-sm-2 id='search' type='text' name='search' placeholder='Search' aria-label='Search'
       button class='btn btn-outline-secondary' type='submit' data-disable-with='Search'
         | Search
+      .search-results
+        ul
