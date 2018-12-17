@@ -14,9 +14,8 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = search_events
+    @events = EventsProvider.new(params[:search], params[:cat]).results
     @categories = %w[Rock Jazz Pop Punk Hardcore Metal Rave]
-    #binding.pry
   end
 
   def show; end

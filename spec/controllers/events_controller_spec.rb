@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe EventsController do
-
   let(:event)  { create :event }
 
   describe 'GET #add_to_cart' do

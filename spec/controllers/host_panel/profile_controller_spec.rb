@@ -33,7 +33,6 @@ RSpec.describe HostPanel::ProfileController do
           it do
             is_expected.to eq([event1_h2, event2_h2])
           end
-
         end
       end
     end

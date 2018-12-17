@@ -23,15 +23,12 @@ $(document).ready(function() {
     console.log($('.main-search'))
     $('.main-search').keyup(debounce(function() {
         var testInput = $(this).val()
-        //console.log(testInput)
         $('.search-results ul').html('')
 
-        $.get('/events', {search: testInput}, function(result) {
-            console.log(result.length)
-            //for (var i in result) {
-
-                //$('.search-results ul').append($('<li><a href="#">' + result[i].name + '</a></li>'))
-            //}
+        $.get('/api/events', {search: testInput}, function(result) {
+            for (var i in result) {
+                $('.search-results ul').append($('<li><a href="#">' + result[i].title + '</a></li>'))
+            }
         })
     }, 300))
 })
