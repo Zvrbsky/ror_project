@@ -30,7 +30,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.justify-content-between
       - if !host_signed_in?
         li.nav-item class=(current_page?(carts_path) ? 'active' : '')
           a.nav-link href=carts_path
-            = "Cart (#{current_guest.cart.order_items.size})"
+            = "Cart (#{current_guest.cart.size})"
       - if user_signed_in?
         li.nav-item class=(current_page?(carts_path) ? 'active' : '')
           a.nav-link href=user_panel_orders_path

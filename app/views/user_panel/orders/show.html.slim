@@ -8,9 +8,9 @@ table.table
       th Event
       th Amount of tickets
   tbody
-    - Event.order_to_hash_of_events(@order).each do |event, amount|
+    - @order.order_items.each do |item|
       tr
-        td= Event.find_by_id(event).title
-        td= amount
+        td= item.event.title
+        td= item.amount
 -unless @order.status == Order::COMPLETE_STATUS
   = button_to 'Pay for order', confirm_user_panel_order_path, method: :post , class: "btn btn-dark"

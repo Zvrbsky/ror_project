@@ -22,17 +22,8 @@ class Event < ApplicationRecord
     end
   end
 
-  def self.decrease_ticket_number(order)
-    events = Event.order_to_hash_of_events(order)
-    events.each do |event_id, amount|
-      return false if (Event.find_by_id(event_id).amount - amount).negative?
-    end
-    events.each do |event_id, amount|
-      event = Event.find_by_id(event_id)
-      event.amount -= amount
-      event.save
-    end
-    true
+  def decrease_amount_by!(number)
+    update!(amount: amount - number)
   end
 
   def self.order_to_hash_of_events(order)

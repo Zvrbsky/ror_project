@@ -30,7 +30,8 @@ module UserPanel
     end
 
     def do_attachment
-      if Event.decrease_ticket_number(@order)
+      if @order.items_available?
+        @order.decrease_tickets_amount!
         @order.update owner: current_user
       else
         flash[:notice] = 'No tickets available'
