@@ -5,7 +5,7 @@ class Guest < ApplicationRecord
     if orders.any?
       orders.first
     else
-      Order.create owner: self
+      Order.create owner: self, status: Order::CART_STATUS
     end
   end
 end

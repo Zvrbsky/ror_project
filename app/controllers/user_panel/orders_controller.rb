@@ -13,6 +13,7 @@ module UserPanel
     def confirm
       @order = current_user.orders.pending.find(params[:id])
       @order.update status: Order::COMPLETE_STATUS
+      flash[:notice] = "You bought tickets for #{@order.order_cost}"
       redirect_to user_panel_order_path(@order)
     end
 

@@ -5,8 +5,7 @@ class CartsController < ApplicationController
 
   def confirm
     cart = current_guest.cart
-    cart.update status: Order::PENDING_STATUS
-
+    cart.confirm
     redirect_to user_panel_order_path(cart)
   end
 end

@@ -28,4 +28,19 @@ class Order < ApplicationRecord
     order_items.each { |item| size += item.amount }
     size
   end
+
+  def order_cost
+    cost = 0
+    if status == CART_STATUS
+      order_items.each { |item| cost += item.cart_order_item_cost }
+    else
+      order_items.each { |item| cost += item.not_cart_order_item_cost }
+    end
+    cost
+  end
+
+  def confirm
+    order_items.each(&:confirm)
+    update status: PENDING_STATUS
+  end
 end
