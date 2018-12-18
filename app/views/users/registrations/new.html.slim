@@ -1,0 +1,30 @@
+h2
+  | Sign up
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.label :email, required: true
+    br
+    = f.email_field :email, required: true, autofocus: true, autocomplete: "email", class: 'form-control'
+    .invalid-feedback
+      | E-mail is already taken
+    = f.input :password,
+                     required: true,
+                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                     input_html: { autocomplete: "new-password" }
+    = f.input :password_confirmation,
+                     required: true,
+                     input_html: { autocomplete: "new-password" }
+  .form-actions
+    = f.button :submit, "Sign up"
+= render "users/shared/links"
+
+javascript:
+  $('input[name="user[email]"]').blur(function() {
+    $('input[name="user[email]"]').removeClass('is-invalid')
+    $.get('/api/users/email_exists', {email: $(this).val()}, function(response) {
+      if(response === true) {
+        $('input[name="user[email]"]').addClass('is-invalid')
+      }
+    })
+  })

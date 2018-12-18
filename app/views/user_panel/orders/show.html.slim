@@ -1,0 +1,30 @@
+br
+h3="Order number: #{@order.id}"
+h3="Order status: #{@order.status}"
+
+table.table
+  thead
+    tr
+      th Event
+      th Amount
+      th Prize
+      th
+      th Sum
+  tbody
+    - @order.order_items.all.each do |item|
+      tr
+        td= link_to item.event.title, event_path(item.event)
+        td= item.amount
+        td= item.event.price
+        td X
+        td= item.not_cart_order_item_cost
+    tr
+      td
+      td
+      td
+      td
+      td
+        strong
+          = @order.order_cost
+-unless @order.status == Order::COMPLETE_STATUS
+  = button_to 'Pay for order', confirm_user_panel_order_path, method: :post , class: "btn btn-dark"

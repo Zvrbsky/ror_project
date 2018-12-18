@@ -1,5 +1,26 @@
-table
+table.table
+  thead
+    tr
+      th Event
+      th Amount
+      th Prize
+      th
+      th Sum
   tbody
     - @cart.order_items.all.each do |item|
       tr
-        td= item.event.title
+        td= link_to item.event.title, event_path(item.event)
+        td= item.amount
+        td= item.event.price
+        td X
+        td= item.cart_order_item_cost
+    tr
+      td
+      td
+      td
+      td
+      td
+        strong
+          = @cart.order_cost
+
+= button_to 'Confirm Order', confirm_carts_path, method: :post , class: "btn btn-dark"

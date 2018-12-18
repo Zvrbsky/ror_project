@@ -1,0 +1,21 @@
+table.table
+  tbody
+    - @orders.each do |order|
+      tr
+        br
+        table.table
+          thead
+            tr
+              th
+                h4
+                  = link_to "Order number #{order.id}", user_panel_order_path(order)
+              th
+                h4= "Status: #{order.status}"
+          tbody
+            tr
+              td Amount of tickets
+              td Cost
+            tr
+              td= order.size
+              td= order.order_cost
+        br

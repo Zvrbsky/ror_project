@@ -21,6 +21,7 @@
     Exclude:
     - 'spec/**/*.rb'
     - 'config/initializers/simple_form_bootstrap.rb'
+    - 'config/routes.rb'
 
   Metrics/MethodLength:
     Exclude:

@@ -21,4 +21,17 @@ class Event < ApplicationRecord
       where('category LIKE ?', "%#{cat}")
     end
   end
+
+  def decrease_amount_by!(number)
+    update!(amount: amount - number)
+  end
+
+  def self.order_to_hash_of_events(order)
+    events = Hash.new(0)
+    order.order_items.all.each do |item|
+      events[item.event_id] += 1
+    end
+    print(events)
+    events
+  end
 end
