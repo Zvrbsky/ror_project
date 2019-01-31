@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationController do
-  describe 'get index' do
+  describe 'GET index' do
     subject { get :index }
     context 'guest created successfully' do
       it do
