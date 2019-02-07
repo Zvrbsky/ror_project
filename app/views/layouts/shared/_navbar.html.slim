@@ -3,7 +3,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.justify-content-between
     | Home
   button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
     span.navbar-toggler-icon
-  #navbarNavDropdown.collapse.navbar-collapse
+  #navbarNavDropdown.collapse.navbar-collapse.d-flex.justify-content-between
     ul.navbar-nav
       li.nav-item class=(current_page?(featured_path) ? 'active' : '')
         a.nav-link href=featured_path
@@ -23,14 +23,18 @@ nav.navbar.navbar-expand-lg.navbar-dark.justify-content-between
         li.nav-item class=(current_page?(new_user_session_path) ? 'active' : '')
           a.nav-link href=new_user_session_path
             | User Panel
-      - if !host_signed_in?
-        li.nav-item class=(current_page?(carts_path) ? 'active' : '')
-          a.nav-link href=carts_path
-            | Cart
       - if user_signed_in?
         li.nav-item class=(current_page?(user_panel_root_path) ? 'active' : '')
           a.nav-link href = user_panel_root_path
             | User panel
+      - if !host_signed_in?
+        li.nav-item class=(current_page?(carts_path) ? 'active' : '')
+          a.nav-link href=carts_path
+            = "Cart (#{current_guest.cart.order_items.size})"
+      - if user_signed_in?
+        li.nav-item class=(current_page?(carts_path) ? 'active' : '')
+          a.nav-link href=user_panel_orders_path
+            | Orders
       - if host_signed_in?
         li.nav-item
           a.nav-link data-method='delete' href = destroy_host_session_path
@@ -39,7 +43,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.justify-content-between
         li.nav-item
           a.nav-link data-method='delete' href = destroy_user_session_path
             | Log out
-    form class='form-inline' action=search_path method='get'
-      input class='form-control mr-sm-2' id='search' type='text' name='search' placeholder='Search' aria-label='Search'
-      button class='btn btn-outline-secondary' type='submit' data-disable-with='Search'
-        | Search
+    form.form-inline.my-2.my-lg-0.search-form action=search_path
+      input.main-search.form-control.mr-sm-2 type='search' placeholder='Search' aria-label='Search' name='search'
+        button class='btn btn-outline-secondary' type='submit'
+          | Search
+        .search-results
+          ul

@@ -5,7 +5,8 @@
   .form-inputs
     = f.input :event_image
     = f.input :title
-    = f.select(:category, ['Rock', 'Jazz', 'Pop', 'Punk', 'Hardcore', 'Metal', 'Rave'])
+    = f.input :category
+      = f.select :category, ['Rock', 'Jazz', 'Pop', 'Punk', 'Hardcore', 'Metal', 'Rave']
     = f.input :date
     = f.input :content
     = f.input :amount

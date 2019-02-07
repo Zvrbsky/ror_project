@@ -1,4 +1,9 @@
 @import 'bootstrap';
+@import 'search';
+
+li.active {
+  text-decoration: underline
+}
 
 .navbar{
   background-color: #404040;

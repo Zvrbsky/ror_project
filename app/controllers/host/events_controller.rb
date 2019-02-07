@@ -4,6 +4,7 @@ class Host::EventsController < ApplicationController
   before_action :set_event, only: %i[edit update destroy]
   before_action :authenticate_host!
 
+  # formularz nie wysyła kategorii
   def create
     @event = Event.new(event_params)
     @event.host_id = current_host.id
@@ -52,7 +53,7 @@ class Host::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :amount, :event_image, :date, :search, :cat)
+    params.require(:event).permit(:title, :category, :content, :amount, :event_image, :date, :search, :price)
   end
 
   def default_image(event)

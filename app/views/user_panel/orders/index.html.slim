@@ -1,0 +1,20 @@
+table.table
+  tbody
+    - @orders.each do |order|
+      tr
+        td
+          br
+          h3
+            =link_to "Order number: #{order.id}", user_panel_order_path(order)
+          h3="Order status: #{order.status}"
+
+          table.table
+            thead
+              tr
+                th Event
+                th Amount of tickets
+            tbody
+              - Event.order_to_hash_of_events(order).each do |event, amount|
+                tr
+                  td= Event.find_by_id(event).title
+                  td= amount
